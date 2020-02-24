@@ -8,6 +8,7 @@ import { Pair } from '../pair';
 
 export class MatchingGameComponent implements OnInit {
   @Input() pairs: Pair[];
+  private solvedPairs: Pair[] = [];
   private unsolvedPairs: Pair[] = [];
 
   constructor() {}

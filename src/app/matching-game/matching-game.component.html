@@ -6,7 +6,7 @@
       </button>
     </div>
     <div class="pair_items right">
-      <button *ngFor="let pair of unsolvedPairs" class="item">
+      <button *ngFor="let pair of unsolvedPairs | shuffle:test" class="item">
         {{pair.rightpart}}
       </button>
     </div>
