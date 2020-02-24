@@ -1,0 +1,21 @@
+<div id="game">
+  <div class="container unsolved" *ngIf="unsolvedPairs.length>0">
+    <div class="pair_items left">
+      <button *ngFor="let pair of unsolvedPairs" class="item">
+        {{pair.leftpart}}
+      </button>
+    </div>
+    <div class="pair_items right">
+      <button *ngFor="let pair of unsolvedPairs" class="item">
+        {{pair.rightpart}}
+      </button>
+    </div>
+  </div>
+  <div class="container solved" *ngIf="solvedPairs.length>0">
+    <div *ngFor="let pair of solvedPairs" class="pair">
+      <button>{{pair.leftpart}}</button>
+      <div class="connector"></div>
+      <button>{{pair.rightpart}}</button>
+    </div>
+  </div>
+</div>
