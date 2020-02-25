@@ -1,1 +1,8 @@
-<app-matching-game></app-matching-game>
+<app-matching-game [pairs]="animals">
+  <ng-template #leftpart let-animalPair="contextPair">
+    <div class="myAnimal left">{{animalPair.leftpart}}</div>
+  </ng-template>
+  <ng-template #rightpart let-animalPair="contextPair">
+    <div class="myAnimal right">{{animalPair.rightpart}}</div>
+  </ng-template>
+</app-matching-game>
