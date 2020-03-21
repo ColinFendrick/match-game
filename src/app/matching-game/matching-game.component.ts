@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ContentChild, TemplateRef } from '@angular/core';
 
 import { Pair } from '../pair';
@@ -12,6 +12,11 @@ export class MatchingGameComponent implements OnInit {
   @Input() pairs: Pair[];
   private solvedPairs: Pair[] = [];
   private unsolvedPairs: Pair[] = [];
+
+  @Output() leftpartSelected = new EventEmitter<number>();
+  @Output() rightpartSelected = new EventEmitter<number>();
+  @Output() leftpartUnselected = new EventEmitter();
+  @Output() rightpartUnselected = new EventEmitter();
 
   @ContentChild('leftpart', { static: false }) leftpart_temp: TemplateRef<any>;
   @ContentChild('rightpart', { static: false }) rightpart_temp: TemplateRef<any>;
