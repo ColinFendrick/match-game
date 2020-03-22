@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ContentChild, TemplateRef } from '@angular/core';
-import { Subscription, Subject, merge, Observable } from 'rxjs';
+import { Subscription, Subject, Observable } from 'rxjs';
 import { pairwise, filter, partition, map } from "rxjs/operators";
 
 import { Pair } from '../pair';
