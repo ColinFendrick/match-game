@@ -38,19 +38,23 @@ export class MatchingGameComponent implements OnInit {
     for (let i = 0; i < this.pairs.length; i++) {
       this.unsolvedPairs.push(this.pairs[i]);
     }
+
     const stream = this.assignmentStream.pipe(
       pairwise(),
-      filter(comb => comb[0].side != comb[1].side),
+      filter(comb => comb[0].side != comb[1].side)
     );
 
     const [stream1, stream2] = partition(comb => comb[0].pair === comb[1].pair)(stream);
 
-    this.solvedStream = stream1.pipe(map(comb => comb[0].pair));
+    this.solvedStream = stream1.pipe(
+      map(comb => comb[0].pair)
+    );
 
-    this.failedStream = stream2.pipe(map(comb => comb[0].side));
+    this.failedStream = stream2.pipe(
+      map(comb => comb[0].side)
+    );
 
     this.s_Subscription = this.solvedStream.subscribe(pair => this.handleSolvedAssignment(pair));
-
     this.f_Subscription = this.failedStream.subscribe(side => this.handleFailedAssignment(side));
   }
 
@@ -66,6 +70,7 @@ export class MatchingGameComponent implements OnInit {
     this.leftpartUnselected.emit();
     this.rightpartUnselected.emit();
 
+    // Workaround to force update to the shuffle pipe
     this.test = Math.random() * 10;
   }
 
