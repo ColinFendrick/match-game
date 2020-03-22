@@ -7,7 +7,25 @@ import { ANIMALS } from '../animals';
 })
 export class Game1Component implements OnInit {
   public animals = ANIMALS;
-  constructor() { }
-  ngOnInit() {
+  constructor() {}
+  ngOnInit() {}
+
+  leftpartSelectedId:number = -1;
+  rightpartSelectedId:number = -1;
+
+  onLeftpartSelected(id: number): void {
+    this.leftpartSelectedId = id;
+  }
+
+  onRightpartSelected(id: number): void {
+    this.rightpartSelectedId = id;
+  }
+
+  onLeftpartUnselected(): void {
+    this.leftpartSelectedId = -1;
+  }
+
+  onRightpartUnselected(): void {
+    this.rightpartSelectedId = -1;
   }
 }
