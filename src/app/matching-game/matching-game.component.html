@@ -1,15 +1,15 @@
 <div class="container unsolved" *ngIf="unsolvedPairs.length>0">
   <div class="pair_items left">
-    <div *ngFor="let pair of unsolvedPairs" class="item">
+    <div *ngFor="let pair of unsolvedPairs" class="item" (mousedown)="leftpartSelected.emit(pair.id)">
       <ng-template [ngTemplateOutlet]="leftpart_temp" [ngTemplateOutletContext]="{contextPair: pair}">
       </ng-template>
     </div>
   </div>
   <div class="pair_items right">
-    <div *ngFor="let pair of unsolvedPairs | shuffle:test" class="item">
-      <ng-template [ngTemplateOutlet]="leftpart_temp" [ngTemplateOutletContext]="{contextPair: pair}">
+    <div *ngFor="let pair of unsolvedPairs | shuffle:test" class="item" (mousedown)="rightpartSelected.emit(pair.id)">
+      <ng-template [ngTemplateOutlet]="rightpart_temp" [ngTemplateOutletContext]="{contextPair: pair}">
       </ng-template>
     </div>
   </div>
 </div>
-...
+
